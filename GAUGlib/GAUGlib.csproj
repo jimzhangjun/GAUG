@@ -1,0 +1,97 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D777DAD-5B4A-4C32-953A-21ACC35B4841}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GAUGlib</RootNamespace>
+    <AssemblyName>GAUGlib</AssemblyName>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="M1ComNET">
+      <HintPath>..\GAUGsuite\M1ComNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement">
+      <HintPath>..\QCSsuite\Microsoft.ApplicationBlocks.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces">
+      <HintPath>..\QCSsuite\Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalogIOClass.cs" />
+    <Compile Include="ByteClass.cs" />
+    <Compile Include="CalibrationDataClass.cs" />
+    <Compile Include="ConfigDataClass.cs" />
+    <Compile Include="CorrectionDataClass.cs" />
+    <Compile Include="CsvParserClass.cs" />
+    <Compile Include="DetectorDataClass.cs" />
+    <Compile Include="ArrayAverageClass.cs" />
+    <Compile Include="ErrorHandlerClass.cs" />
+    <Compile Include="EventClass.cs" />
+    <Compile Include="MathUtils.cs" />
+    <Compile Include="MeasureDataClass.cs" />
+    <Compile Include="MeasureParametersClass.cs" />
+    <Compile Include="MovingAverageClass.cs" />
+    <Compile Include="PolynomialClass.cs" />
+    <Compile Include="PyroDataClass.cs" />
+    <Compile Include="RFMData.cs" />
+    <Compile Include="SetupDataClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusDataClass.cs" />
+    <Compile Include="StopWatchClass.cs" />
+    <Compile Include="SummaryResultsData.cs" />
+    <Compile Include="SupportClass.cs" />
+    <Compile Include="XMDDataClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SIPROapps.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "$(SolutionDir)\GAUGsuite\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
